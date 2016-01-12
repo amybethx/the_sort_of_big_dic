@@ -25,13 +25,12 @@ def alphabetize_restaurant_dictionary(dictionary):
 
     Return dictionary."""
 
-    list_dictionary = []
-    for key in dictionary:
-        list_dictionary.append(key)
+    list_dictionary = dictionary.keys()
 
     sorted_list = sorted(list_dictionary)
     return sorted_list
 
+#can use the keys method to create a list 
 
 def print_sorted_dictionary(sorted_list, dictionary):
     """Print the sort of big dic"""
