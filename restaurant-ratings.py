@@ -8,12 +8,18 @@ def create_restaurant_dictionary(filename):
 
     restaurant_dictionary = {} #create dictionary
     restaurant_file = open(filename) #open file
-    for restaurant in restaurant_file: #for each restaraunt 
-        restaurant = restaurant.strip() #removes whitespace
-        restaurant_info = restaurant.split(":") #separate restaraunt and rating
-        restaurant_name = restaurant_info[0] #1st entry is name
-        restaurant_rating = restaurant_info[1] #2nd entry is rating
-        restaurant_dictionary[restaurant_name] = restaurant_rating 
+    try:
+        new_restaurant = raw_input("Please type in the name of a restaurant: ")
+        restaurant_score = int(raw_input("What would you rate this restaurant?: "))
+        restaurant_dictionary[new_restaurant] = restaurant_score
+        for restaurant in restaurant_file: #for each restaraunt 
+            restaurant = restaurant.strip() #removes whitespace
+            restaurant_info = restaurant.split(":") #separate restaraunt and rating
+            restaurant_name = restaurant_info[0] #1st entry is name
+            restaurant_rating = restaurant_info[1] #2nd entry is rating
+            restaurant_dictionary[restaurant_name] = restaurant_rating
+    except ValueError or TypeError:
+        print "Please type in a string for restaurant and an integer for restaurant rating!"
     
     return restaurant_dictionary
 
